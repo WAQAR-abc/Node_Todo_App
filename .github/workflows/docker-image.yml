@@ -14,8 +14,14 @@ jobs:
       run: ls -ll
     - name: Build the Docker image
       run: |
-        docker image ls
         docker build . -t waqardocker123/my-pipeline-test-image
         docker image ls
-      
+    - name: Runing Container
+      run: |
+        docker container run -d -p 3000:3000 waqardocker123/my-pipeline-test-image
+        docker container ls
+
+    - name: IP
+      run: ip addr
+        
 
