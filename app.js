@@ -35,5 +35,5 @@ app.post('/todos', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
-  console.log(`🌐 Server is running at http://localhost:${port}`);
+  console.log(`🌐 Server is working at http://localhost:${port}`);
 });
