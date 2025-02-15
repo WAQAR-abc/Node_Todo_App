@@ -17,10 +17,8 @@ jobs:
         docker build . -t waqardocker123/my-pipeline-test-image
         docker image ls
 
-    - name: IP
-      run: ip addr
-      
-    - name: Runing Container
+    - name: Pushing Image to DockerHub
       run: |
-        docker container run -p 3000:3000 waqardocker123/my-pipeline-test-image
+        echo "dckr_pat_YHpvi2QU-gcHprSJzzQn2AVQwQM" | docker login -u waqardocker123 --password-stdin
+        docker push waqardocker123/my-pipeline-test-image
         
