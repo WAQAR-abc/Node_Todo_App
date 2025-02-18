@@ -24,9 +24,9 @@ jobs:
 
     - name: Testing Container
       run: |
+        echo "Testing the Container"
         curl http://localhost:3000 >> response.txt
         echo "==========================="
-        wget http://localhost:3000 >> response.txt
         # grep "abxyz" response.txt
 
     - name: Pushing Image to DockerHub
