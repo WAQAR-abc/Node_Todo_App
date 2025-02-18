@@ -19,7 +19,7 @@ jobs:
 
     - name: Run Docker Container
       run: |
-        docker conatiner run -d -p 3000:3000 ${{ vars.DOCKER_NAME }}/my-pipeline-test-image
+        docker container run -d -p 3000:3000 ${{ vars.DOCKER_NAME }}/my-pipeline-test-image
         docker container ls
 
     - name: Testing Container
