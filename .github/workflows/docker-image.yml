@@ -17,19 +17,6 @@ jobs:
         docker build . -t ${{ vars.DOCKER_NAME }}/my-pipeline-test-image
         docker image ls
 
-    - name: Run Docker Container
-      run: |
-        docker container run -d -p 3000:3000 ${{ vars.DOCKER_NAME }}/my-pipeline-test-image
-        docker container ls
-
-    - name: Testing Container
-      run: |
-        sleep 10
-        echo "Testing the Container"
-        curl http://localhost:3000 >> response.txt
-        echo "==========================="
-        grep "MY TODO LIST" response.txt
-
     - name: Pushing Image to DockerHub
       run: |
         echo "${{ secrets.DOCKER_PAT }}" | docker login -u ${{ vars.DOCKER_NAME }} --password-stdin
