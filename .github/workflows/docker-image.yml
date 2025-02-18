@@ -25,7 +25,7 @@ jobs:
     - name: Testing Container
       run: |
         curl http://localhost:3000 >> response.txt
-        grep "MY TODO LIST" response.txt
+        grep "abxyz" response.txt
 
     - name: Pushing Image to DockerHub
       run: |
