@@ -42,7 +42,6 @@ jobs:
         with:
             dockerhub-user: ${{ vars.DOCKER_NAME }}
             dockerhub-password: ${{ secrets.DOCKER_PAT }}
-            image: my-node-app
             command: cves,recommendations
             only-severities: critical,high
 
