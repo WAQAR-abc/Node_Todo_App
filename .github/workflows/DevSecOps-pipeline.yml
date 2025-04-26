@@ -44,6 +44,7 @@ jobs:
             dockerhub-password: ${{ secrets.DOCKER_PAT }}
             command: quickview,cves
             image: my-node-app
+            platform: local
             only-severities: critical,high
 
       - name: Removing the Docker
