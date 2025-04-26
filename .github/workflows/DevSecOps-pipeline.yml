@@ -40,6 +40,9 @@ jobs:
       - name: Pushing Image to DockerHub
         run: |
           echo "${{ secrets.DOCKER_PAT }}" | docker login -u ${{ vars.DOCKER_NAME }} --password-stdin
+          echo "-----------"
+          groups
+          user
           docker push ${{ vars.DOCKER_NAME }}/my-node-app:latest
 
       - name: Docker Scout 
