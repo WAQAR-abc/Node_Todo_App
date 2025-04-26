@@ -21,10 +21,11 @@ jobs:
           sudo docker build . -t my-node-app
           sudo docker image ls
 
-      - name: Running the App with Docker
+      - name: Removing the Docker
         run: |
           sudo docker container stop mynodeapp
-          sudo docker container rm mynodeapp        
+          sudo docker container rm mynodeapp   
+        continue-on-error: true
 
       - name: Running the App with Docker
         run: |
