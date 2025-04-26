@@ -37,15 +37,20 @@ jobs:
           sudo docker build . -t my-node-app:latest
           sudo docker image ls
 
-      - name: Docker Scout
+      - name: Pushing Image to DockerHub
+        run: |
+          echo "${{ secrets.DOCKER_PAT }}" | docker login -u ${{ vars.DOCKER_NAME }} --password-stdin
+          docker push ${{ vars.DOCKER_NAME }}/my-node-app:latest
+
+      - name: Docker Scout 
         uses: docker/scout-action@v1.17.1
         with:
             dockerhub-user: ${{ vars.DOCKER_NAME }}
             dockerhub-password: ${{ secrets.DOCKER_PAT }}
             command: quickview,cves
-            image: python:latest
-            # platform: local
-            # only-severities: critical,high
+            image: my-node-app:latest
+            only-severities: critical,high
+            #NOTE: It is scanning a DockerHub public-repository image, for private images you need to setup registry. 
 
       - name: Removing the Docker
         run: |
