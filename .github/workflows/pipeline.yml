@@ -10,8 +10,18 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       
-      - name: Installing Dependencies
-        run: npm install
+      # - name: Installing Dependencies
+      #   run: npm install
 
-      - name: Run the app
-        run: pm2 start npm --name "my-node-app" -- start -- -p 3000
+      # - name: Run the app
+      #   run: pm2 start npm --name "my-node-app" -- start -- -p 3000
+
+      - name: Building the Docker image
+        run: |
+          sudo docker build . -t my-node-app
+          sudo docker image ls
+
+      - name: Running the App with Docker
+        run: |
+          sudo docker container run -dit -p 3000:3000 my-node-app /bin/bash
+          
