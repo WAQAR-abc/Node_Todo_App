@@ -43,7 +43,7 @@ jobs:
             dockerhub-user: ${{ vars.DOCKER_NAME }}
             dockerhub-password: ${{ secrets.DOCKER_PAT }}
             command: quickview,cves
-            image: my-node-app:latest
+            source: my-node-app:latest
             platform: local
             only-severities: critical,high
 
