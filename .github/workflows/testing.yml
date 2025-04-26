@@ -1,6 +1,6 @@
 name: GitHub Actions Learning Demo
 run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
-on: [test]
+on: [fork]
 jobs:
   Testing-Job:
     runs-on: ubuntu-latest
