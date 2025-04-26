@@ -16,6 +16,15 @@ jobs:
       # - name: Run the app
       #   run: pm2 start npm --name "my-node-app" -- start -- -p 3000
 
+      - name: Scanning The Repo Code Vulnerabilities
+        uses: aquasecurity/trivy-action@master
+        with:
+          scan-type: "fs"
+          format: table
+          scan-ref: .
+          severity: HIGH,CRITICAL
+          ignore-unfixed: true
+
       - name: Building the Docker image
         run: |
           sudo docker build . -t my-node-app
@@ -30,5 +39,4 @@ jobs:
       - name: Running the App with Docker
         run: |
           sudo docker container run --name mynodeapp -d -p 3000:3000 my-node-app
-        #sudo docker container run --name mynodeapp -dit -p 3000:3000 my-node-app /bin/bash 
           
