@@ -37,13 +37,13 @@ jobs:
           sudo docker build . -t my-node-app
           sudo docker image ls
 
-      # - name: Docker Scout
-      #   uses: docker/scout-action@v1
-      #   with:
-      #       dockerhub-user: ${{ vars.DOCKER_NAME }}
-      #       dockerhub-password: ${{ secrets.DOCKER_PAT }}
-      #       command: cves,recommendations
-      #       only-severities: critical,high
+      - name: Docker Scout
+        uses: docker/scout-action@v1.17.1
+        with:
+            dockerhub-user: ${{ vars.DOCKER_NAME }}
+            dockerhub-password: ${{ secrets.DOCKER_PAT }}
+            command: quickview,cves
+            only-severities: critical,high
 
       - name: Removing the Docker
         run: |
