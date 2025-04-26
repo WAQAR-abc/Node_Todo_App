@@ -1,8 +1,8 @@
 name: Docker Image Publish to DockerHub
 
-# on:
-#   push:
-#     branches: [ "main" ]
+on:
+  push:
+    branches: [ "test" ]
 
 jobs:
   build-and-publish:
