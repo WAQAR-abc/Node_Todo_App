@@ -34,7 +34,7 @@ jobs:
 
       - name: Building the Docker image
         run: |
-          sudo docker build . -t my-node-app:latest
+          sudo docker build . -t ${{ vars.DOCKER_NAME }}/my-node-app:latest
           sudo docker image ls
 
       - name: Pushing Image to DockerHub
