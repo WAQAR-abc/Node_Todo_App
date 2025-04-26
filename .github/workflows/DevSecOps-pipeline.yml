@@ -22,7 +22,7 @@ jobs:
           scan-type: "fs"
           output: trivy-report.json
           format: json
-          scan-ref: .
+          # scan-ref: .
           # severity: HIGH,CRITICAL
 
       - name: Upload Vulnerability Scan Results
