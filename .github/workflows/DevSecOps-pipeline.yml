@@ -20,9 +20,9 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           scan-type: "fs"
+          scanners: "vuln,secret,config"
           output: trivy-report.json
           format: json
-          # scan-ref: .
           # severity: HIGH,CRITICAL
 
       - name: Upload Vulnerability Scan Results
