@@ -23,6 +23,7 @@ jobs:
           output: trivy-report.json
           format: json
           scan-ref: .
+          severity: HIGH,CRITICAL
           exit-code: 0
 
       - name: Upload Vulnerability Scan Results
