@@ -23,5 +23,10 @@ jobs:
 
       - name: Running the App with Docker
         run: |
+          sudo docker container stop my-node-app
+          sudo docker container rm my-node-app        
+
+      - name: Running the App with Docker
+        run: |
           sudo docker container run -dit -p 3000:3000 my-node-app /bin/bash
           
