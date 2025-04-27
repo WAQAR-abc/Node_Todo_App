@@ -6,7 +6,7 @@ on:
 
 jobs:
   Setup-and-deploy:
-    runs-on: self-hosted
+    runs-on: my-server
     steps:
       - uses: actions/checkout@v4
       
